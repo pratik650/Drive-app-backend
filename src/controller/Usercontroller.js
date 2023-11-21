@@ -110,13 +110,21 @@ exports.getUserProfile = async (req, res) => {
 
 
 
-exports.driverdetails = async (req, res) => {
+exports.userDetails = async (req, res) => {
     try {
-        const drivers = await Driver.find({}); 
-        res.json(drivers); 
-        console.log(drivers);
+        const User = await Driver.find({}).exec(); // Fetch all User
+        if (!User || User.length === 0) {
+            return res.status(404).json({ success: false, message: 'No User found.'});
+        }
+
+        res.json({
+            success: true,
+            message: 'Users fetched successfully.',
+            data: User
+        });
+
     } catch (error) {
-        console.error('Error fetching drivers:', error);
-        res.status(500).send(error);
+        console.error(error);
+        res.status(500).json({ success: false, message: 'Server error occurred.', error: error.message });
     }
 };

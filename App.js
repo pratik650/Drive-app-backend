@@ -17,6 +17,11 @@ app.use(express.json());
 const userRoutes = require('./src/routes/Userroute');
 app.use('/api/users', userRoutes);
 
+const driverRoutes = require('./src/routes/Driverroute');
+app.use('/api/drivers', driverRoutes);
+
+
+
 app.get('/favicon.ico', (req, res) => res.status(204).end());
 app.get('/', (req, res) => res.send("request fulfilled"));
 
