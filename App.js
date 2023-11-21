@@ -17,8 +17,7 @@ app.use(express.json());
 const userRoutes = require('./src/routes/Userroute');
 app.use('/api/users', userRoutes);
 
-
-
+app.get('/favicon.ico', (req, res) => res.status(204).end());
 
 // Start the server
 const PORT = process.env.PORT || 5000;
