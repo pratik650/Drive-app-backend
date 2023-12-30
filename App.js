@@ -32,7 +32,8 @@ app.get('/favicon.ico', (req, res) => res.status(204).end());
 app.get('/', (req, res) => res.json("hello")); // Corrected the method from req.json to res.json
 
 
+// Start the server
 const PORT = process.env.PORT || 5000; // Set a default port if PORT is not defined
 app.listen(PORT, () => console.log(`Server is running on port ${PORT}`))
-   .on('error', err => console.error(err)); // Error handling for server listen method
+
 
