@@ -29,14 +29,20 @@ server.on('upgrade', function upgrade(request, socket, head) {
     });
 });
 
+// const path = require('path');
+
 // Enable CORS
 app.use(cors()); // Using CORS
 
 // Middlewares
+
 app.use(express.json()); // Parsing JSON bodies
 
 // Serving static files
 app.use('/images', express.static('src/upload/'));
+ 
+ 
+app.use('/images', express.static('src/upload'));
 
 // Import routes
 const userRoutes = require('./src/routes/Userroute');
